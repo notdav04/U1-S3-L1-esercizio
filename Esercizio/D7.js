@@ -236,6 +236,7 @@ function oldest_movies(array) {
   return oldest;
 }
 console.log(oldest_movies(movies));
+
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
@@ -245,6 +246,7 @@ function count_film(array) {
   return array.length;
 }
 console.log(count_film(movies));
+
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
@@ -261,14 +263,46 @@ console.log(map_title(movies));
 */
 console.log("Esercizio 12");
 
+function filter_2000(array) {
+  const recent_film = array.filter((film) => parseInt(film.Year) >= 2000);
+  return recent_film;
+}
+console.log(filter_2000(movies));
+
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+console.log("Esercizio 13");
+
+function somma_anni(array) {
+  const somma_anni = array.reduce(
+    (totale, film) => parseInt(totale) + parseInt(film.Year),
+    0
+  );
+  return somma_anni;
+}
+console.log(somma_anni(movies));
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+console.log("Esercizio 14");
+
+search_id = "tt2395427";
+function finder(array, id) {
+  const film_trovato = array.find((film) => film.imdbID === id);
+  return film_trovato;
+}
+console.log(finder(movies, search_id));
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+console.log("Esercizio 15");
+searched_year = 2005;
+function index_finder(array, year) {
+  const index_film = array.findIndex((film) => parseInt(film.Year) === year);
+  return index_film;
+}
+
+console.log(index_finder(movies, searched_year));
