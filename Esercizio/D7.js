@@ -63,19 +63,47 @@ sum_foreach(random_array);
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 console.log("Esercizio 5");
-
+function reduce_method(array) {
+  let sum = array.reduce((total, amount) => total + amount);
+  console.log(sum);
+}
+reduce_method(random_array);
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+console.log("Esercizio 6");
+
+function map_method(array, n) {
+  const mapped_array = array.map((element) => element + n);
+  console.log(mapped_array);
+}
+map_method(random_array, 2);
 
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+console.log("Esercizio 7");
+
+stringhe = ["davide", "epicode", "d", "metodo map array di stringhe"];
+function string_map_method(array) {
+  const mapped_strings = array.map((stringa) => stringa.length);
+  console.log(mapped_strings);
+}
+string_map_method(stringhe);
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+console.log("Esercizio 8");
+
+let dispari = [];
+for (let i = 0; i < 100; i++) {
+  if (i % 2 !== 0) {
+    dispari.push(i);
+  }
+}
+console.log(dispari);
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -196,18 +224,42 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
+console.log("Esercizio 9");
 
+function oldest_movies(array) {
+  let oldest = array[0];
+  array.forEach((film) => {
+    if (parseInt(oldest.Year) > parseInt(film.Year)) {
+      oldest = film;
+    }
+  });
+  return oldest;
+}
+console.log(oldest_movies(movies));
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+console.log("Esercizio 10");
 
+function count_film(array) {
+  return array.length;
+}
+console.log(count_film(movies));
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+console.log("Esercizio 11");
+
+function map_title(array) {
+  let mapped_title = array.map((film) => film.Title);
+  return mapped_title;
+}
+console.log(map_title(movies));
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+console.log("Esercizio 12");
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
